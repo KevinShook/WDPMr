@@ -1,0 +1,17 @@
+readWDPMResolutionVolumesAreas <- function(infile){
+  # reads summary created by WDPMAreaVolume for multiple resolutions
+  # for loop1 processing
+
+  WDPMSummary <- utils::read.csv(infile, header=TRUE, stringsAsFactors = FALSE)
+  # parse file names
+  f <- strsplit(WDPMSummary$file, '_', fixed=TRUE)
+  WDPMSummary$resolution <- as.numeric(unlist((lapply(f, "[[", 1))))
+  WDPMSummary$add1 <- as.numeric(unlist((lapply(f, "[[", 2))))
+  WDPMSummary$subtract1 <- as.numeric(unlist((lapply(f, "[[", 3))))
+  WDPMSummary$add2 <- as.numeric(unlist((lapply(f, "[[", 4))))
+  WDPMSummary$subtract2 <- as.numeric(unlist((lapply(f, "[[", 5))))
+  WDPMSummary$type <- unlist((lapply(f, "[[", 6)))
+  # order by addition and subtraction
+  WDPMSummary <- WDPMSummary[order(WDPMSummary$add1, WDPMSummary$subtract1, WDPMSummary$add2, WDPMSummary$subtract2),]
+  return(WDPMSummary)
+}
