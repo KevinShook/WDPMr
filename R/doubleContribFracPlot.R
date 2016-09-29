@@ -20,9 +20,12 @@ doubleContribFracPlot <- function(curveFile1, name1, curveFile2, name2){
 
   # read curves
   curves1 <- utils::read.csv(curveFile1, header=TRUE, stringsAsFactors = FALSE)
+  curves1 <- curves1[,c('xstart','xend','ystart','yend','Operation')]
   curves1$name <- name1
+  
 
   curves2 <- utils::read.csv(curveFile2, header=TRUE, stringsAsFactors = FALSE)
+  curves2 <- curves2[,c('xstart','xend','ystart','yend','Operation')]
   curves2$name <- name2
 
   # combine

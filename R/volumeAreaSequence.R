@@ -1,5 +1,5 @@
 #' Orders values created by totalAreaVolume
-#' @description The areas and volumes are sorted in order of addition and removal of water. These value can then be used to calculate and plot the hysteresis between water vaolume and area, and between water volume and contributing (connected) area.
+#' @description The areas and volumes are sorted in order of addition and removal of water. These value can then be used to calculate and plot the hysteresis between water volume and area, and between water volume and contributing (connected) area.
 #' @param areasVolumes Required. A data frame containing WDPM total water areas and volumes.
 #'
 #' @return If successful, returns a data frame of the water areas and volumes, sorted in order of Add1, Subtract1, Add2, Subtract2. If unsuccssful, returns \code{FALSE}.

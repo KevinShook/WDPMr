@@ -136,15 +136,15 @@ contributingAreaHysteresisPlot <- function(curve1, curve2, extend=TRUE,
   }
   #  prevent negative contributing areas
 
-    curve1.segs$xstart <- max(curve1.segs$xstart, 0)
-    curve1.segs$xend <- max(curve1.segs$xend, 0)
-    curve1.segs$ystart <- max(curve1.segs$ystart, 0)
-    curve1.segs$yend <- max(curve1.segs$yend, 0)
+    curve1.segs$xstart <- pmax(curve1.segs$xstart, 0)
+    curve1.segs$xend <- pmax(curve1.segs$xend, 0)
+    curve1.segs$ystart <- pmax(curve1.segs$ystart, 0)
+    curve1.segs$yend <- pmax(curve1.segs$yend, 0)
 
-    curve2.segs$xstart <- max(curve2.segs$xstart, 0)
-    curve2.segs$xend <- max(curve2.segs$xend, 0)
-    curve2.segs$ystart <- max(curve2.segs$ystart, 0)
-    curve2.segs$yend <- max(curve2.segs$yend, 0)
+    curve2.segs$xstart <- pmax(curve2.segs$xstart, 0)
+    curve2.segs$xend <- pmax(curve2.segs$xend, 0)
+    curve2.segs$ystart <- pmax(curve2.segs$ystart, 0)
+    curve2.segs$yend <- pmax(curve2.segs$yend, 0)
 
 
 

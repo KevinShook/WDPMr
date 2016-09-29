@@ -13,14 +13,16 @@ measureBasins <- function(infile){
 
   #get number of patches
   basins_raster <- raster::raster(basins)
-  patch_count <- length(raster::unique(basins_raster))
+  basin_nums <- raster::unique(basins_raster)
+  patch_count <- length(basin_nums)
 
   # loop through all basins
   for (i in 1:(patch_count-1)){
     # make binary
+    basin <- basin_nums[i]
     basins.binary <- basins
-    basins.binary[basins.binary != i] <- 0
-    basins.binary[basins.binary == i] <- 1
+    basins.binary[basins.binary != basin] <- 0
+    basins.binary[basins.binary == basin] <- 1
 
 
     # get patch connectivity
