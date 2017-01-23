@@ -17,7 +17,7 @@ measureBasins <- function(infile){
   patch_count <- length(basin_nums)
 
   # loop through all basins
-  for (i in 1:(patch_count-1)){
+  for (i in 2:(patch_count)){
     # make binary
     basin <- basin_nums[i]
     basins.binary <- basins
@@ -32,9 +32,9 @@ measureBasins <- function(infile){
     patches <- SDMTools::PatchStat(ccl, cellsize=cellsize)
     patches <- patches[patches$patchID > 0,]
     area <- sum(patches$area)
-    ID <- i
+    ID <- basin
     patches <- data.frame(ID, area)
-    if (i == 1)
+    if (i == 2)
       all <- patches
     else{
       all <- rbind(all, patches)

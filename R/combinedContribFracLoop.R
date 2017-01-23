@@ -1,4 +1,4 @@
-combinedContribFracLoop <- function(infile, outfile){
+combinedContribFracLoop <- function(infile, outfile, ylabel='Connected fraction'){
   # plots all contrib fraction loops on a single graph
   # declare plot variables
   xstart <- NULL
@@ -15,7 +15,7 @@ combinedContribFracLoop <- function(infile, outfile){
 
   p <- ggplot2::ggplot() + ggplot2::scale_colour_manual(values = c("red","blue")) +
     ggplot2::xlab('Fractional water volume') +
-    ggplot2::ylab('Fractional contributing area') +
+    ggplot2::ylab(ylabel) +
     ggplot2::coord_equal(ratio = 1) +
     ggplot2::geom_segment(data=all.segs,
                           ggplot2::aes(xstart,ystart,xend=xend,yend=yend,
