@@ -4,11 +4,11 @@
 #'
 #' @return If successful, returns a data frame of the water areas and volumes, sorted in order of Add1, Subtract1, Add2, Subtract2. If unsuccssful, returns \code{FALSE}.
 #' @author Kevin Shook
-#' @seealso code{\link{totalAreaVolume}} code{\link{loop1ContribFracPlot}}
+#' @seealso \code{\link{totalAreaVolume}} \code{\link{loop1ContribFracPlot}}
 #' @export
 #'
 #' @examples \dontrun{
-#' areavol <- volumeAreaSequence(areasVolumes}
+#' areavol <- volumeAreaSequence(areasVolumes)}
 volumeAreaSequence <- function(areasVolumes){
 
   if(is.null(areasVolumes)){
@@ -31,12 +31,12 @@ volumeAreaSequence <- function(areasVolumes){
 
   # check if first and last columns are needed
   options(warn=-1)
-  if (!is.numeric(f[[1]][[1]]))
+  if (!is.numeric(type.convert(f[[1]][[1]])))
     doFirst <- FALSE
   else
     doFirst <- TRUE
 
-  if (!is.numeric(f[[1]][[underscores]]))
+  if (!is.numeric(type.convert(f[[1]][[underscores]])))
     doLast <- FALSE
   else
     doLast <- TRUE
@@ -48,7 +48,6 @@ volumeAreaSequence <- function(areasVolumes){
     pieces <- pieces[-1]
     output$name <- unlist((lapply(f, "[[", 1)))
   }
-
 
   if(!doLast){
     pieces <- pieces[1:(length(pieces)-1)]
