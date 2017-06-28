@@ -20,7 +20,8 @@
 #' @import ggplot2 stringr reshape2 grid RColorBrewer
 #' @importFrom SDMTools read.asc ConnCompLabel PatchStat
 #' @importFrom raster as.matrix cellStats raster mask
-#' @importFrom utils read.table
+#' @importFrom utils read.table type.convert
 #' @importFrom igraph graph simplify delete_edges E V
 #' @importFrom graphics hist
+#' @importFrom ineq Lc
 NULL

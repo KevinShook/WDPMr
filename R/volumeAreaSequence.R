@@ -31,12 +31,12 @@ volumeAreaSequence <- function(areasVolumes){
 
   # check if first and last columns are needed
   options(warn=-1)
-  if (!is.numeric(type.convert(f[[1]][[1]])))
+  if (!is.numeric(utils::type.convert(f[[1]][[1]])))
     doFirst <- FALSE
   else
     doFirst <- TRUE
 
-  if (!is.numeric(type.convert(f[[1]][[underscores]])))
+  if (!is.numeric(utils::type.convert(f[[1]][[underscores]])))
     doLast <- FALSE
   else
     doLast <- TRUE

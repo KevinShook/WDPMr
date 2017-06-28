@@ -12,15 +12,16 @@
 #' @param vertexColours Optional. Can be a single named colour for all vertices or a vector of names colours for individual ponds.
 #' @param edgeColours Optional. Can be a single named colour for all edges or a vector of names colours for individual edges.
 #' @param outletRed Optional. If \code{TRUE} (the default) then the outlet pond is coloured red.
+#' @param lineWidth Optional. Sets line width for edges. Default is 1.
 #' @return Returns an \pkg{igraph} object of the PCM model.
-#'
+#' @export
 #' @examples \dontrun{
 #' g <- graphPCMPonds(pcmModel)
 #' plot(g)}
 
 graphPCMPonds <- function(dest, numPonds=0, disConnected='', size=0, maxSize=20, removeNodeZero=TRUE,
                          labels=FALSE, arrowSize=0, simplify=TRUE, vertexColours='', edgeColours='',
-                         outletRed=TRUE){
+                         outletRed=TRUE, lineWidth=1){
 
   dest <- as.character(dest)
   if (removeNodeZero){
@@ -86,6 +87,9 @@ graphPCMPonds <- function(dest, numPonds=0, disConnected='', size=0, maxSize=20,
     igraph::E(g)$arrow.mode <- 0
   else
     igraph::E(g)$arrow.size <- arrowSize
+
+  # set line width
+   igraph::E(g)$width <- lineWidth
 
   # set labels
   if (!labels)
