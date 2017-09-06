@@ -2,13 +2,15 @@
 #'
 #' @param areas Required. Vector of water areas.
 #' @param minval Optional. Minimum water area to be plotted. Default is 100 m2.
-#'
+#' @param addLine Optional. Default is \option{none}. Other options are \option{linear}, \option{quadratic}, and \option{gpd}.
+#' @param lineColour Optional. Colour to be used for the fitted line. Default is \option{red}.
 #' @return Returns \pkg{ggplot2} object of Korcak plot.
 #' @export
 #'
 #' @examples \dontrun{
 #' p <- KorcakPlot1(alldata$areas)}
-KorcakPlot1 <- function(areas, minval=100){
+KorcakPlot1 <- function(areas, minval=100, addLine="none", lineColour="red"){
+  addLine <- stringr::str_to_lower(addLine)
   # declare ggplot vars
   p <- NULL
   value <- NULL
@@ -27,9 +29,34 @@ KorcakPlot1 <- function(areas, minval=100){
     ggplot2::geom_point() +
     ggplot2::xlab(expression(paste('Water area (m',''^{2}, ')', sep = ""))) +
     ggplot2::ylab("Exceedance probability") +
-    ggplot2::scale_y_log10(breaks=ybreaks,labels=ybreaks) +
-    ggplot2::scale_x_log10(breaks=xbreaks,labels=xbreaks) +
-    ggplot2::stat_smooth(method = "lm", formula = y ~ x + I(x^2), size = 0.5, se = TRUE)
+    ggplot2::scale_y_log10(breaks = ybreaks,labels = ybreaks) +
+    ggplot2::scale_x_log10(breaks = xbreaks,labels = xbreaks)
+
+  if (addLine == "quadratic")
+    p <- p + ggplot2::stat_smooth(method = "lm", formula = y ~ x + I(x^2),
+                                  size = 0.5, se = TRUE, colour = lineColour)
+
+  if (addLine == "linear")
+    p <- p + ggplot2::stat_smooth(method = "lm", formula = y ~ x,
+                                  size = 0.5, se = TRUE, colour = lineColour)
+
+  if (addLine == "gpd") {
+    # fit gpd to distribution
+    # fit GPD
+    gpdfit <- ismev::gpd.fit(areas, minval, show = FALSE)
+    beta <- gpdfit$mle[1]
+    xi <- gpdfit$mle[2]
+
+    # create plotting points
+    # generate random values
+    r <- fExtremes::rgpd(1e5, xi = xi, mu = minval, beta = beta)
+    # get exceedence probability
+    exProb <- 1 - fExtremes::pgpd(r, xi = xi, mu = minval, beta = beta)
+    gpd <- data.frame(r, exProb)
+    p <- p + ggplot2::geom_line(data = gpd, ggplot2::aes(r, exProb),
+                                colour = lineColour)
+
+  }
 
   return(p)
 
