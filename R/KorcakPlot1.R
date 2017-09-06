@@ -4,12 +4,13 @@
 #' @param minval Optional. Minimum water area to be plotted. Default is 100 m2.
 #' @param addLine Optional. Default is \option{none}. Other options are \option{linear}, \option{quadratic}, and \option{gpd}.
 #' @param lineColour Optional. Colour to be used for the fitted line. Default is \option{red}.
+#' @param useLargest Optional. If \code{TRUE} then the largest value will be used, i.e. its non-exceedence probability willl be > 0. Default is \code{FALSE}.
 #' @return Returns \pkg{ggplot2} object of Korcak plot.
 #' @export
 #'
 #' @examples \dontrun{
 #' p <- KorcakPlot1(alldata$areas)}
-KorcakPlot1 <- function(areas, minval=100, addLine="none", lineColour="red"){
+KorcakPlot1 <- function(areas, minval=100, addLine="none", lineColour="red", useLargest=FALSE){
   addLine <- stringr::str_to_lower(addLine)
   # declare ggplot vars
   p <- NULL
@@ -17,7 +18,7 @@ KorcakPlot1 <- function(areas, minval=100, addLine="none", lineColour="red"){
 
   # plots 1 data set
 
-  d1.korcak <- korcak(areas[areas >= minval])
+  d1.korcak <- korcak(areas[areas >= minval], useLargest = useLargest)
   d1.korcak <- d1.korcak[d1.korcak$p > 0,]
 
   names(d1.korcak) <- c("value","p")

@@ -8,7 +8,7 @@
 #' @param xbreaks Optional. Location of breaks in x-axis. Default is \code{c(10,1000,100000)}
 #' @param ybreaks Optional. Location of breaks in y-axis. Default is \code{c(0.005,0.001,0.01,0.1,0.2,0.4,0.6,0.8,1)}.
 #' @param addLine Optional. Default is \option{none}. Other options are \option{linear}, \option{quadratic}, and \option{gpd}.
-#'
+#' @param useLargest Optional. If \code{TRUE} then the largest value will be used, i.e. its non-exceedence probability willl be > 0. Default is \code{FALSE}.
 #' @return Returns a \pkg{ggplot2} object of korcak plot.
 #' @export
 #'
@@ -17,15 +17,15 @@
 KorcakPlot2 <- function(data1, name1, data2, name2, minsize=0,
                         xbreaks=c(10,1000,100000),
                         ybreaks=c(0.005,0.001,0.01,0.1,0.2,0.4,0.6,0.8,1),
-                        addLine="linear"){
+                        addLine="linear", useLargest=FALSE){
   # compares and plots 2 data sets
   # declare variables
   p <- NULL
   name <- NULL
   value <- NULL
 
-  d1.korcak = korcak(data1[data1 >= minsize])
-  d2.korcak = korcak(data2[data2 >= minsize])
+  d1.korcak = korcak(data1[data1 >= minsize], useLargest = useLargest)
+  d2.korcak = korcak(data2[data2 >= minsize], useLargest = useLargest)
 
 
   d1.korcak <- subset(d1.korcak, p > 0)
