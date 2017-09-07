@@ -25,4 +25,7 @@
 #' @importFrom graphics hist
 #' @importFrom ineq Lc
 #' @importFrom fExtremes pgpd rgpd
+#' @importFrom graphics lines plot points polygon text
+#' @importFrom stats sd
+#' @importFrom utils read.csv write.csv
 NULL
