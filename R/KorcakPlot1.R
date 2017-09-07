@@ -58,7 +58,5 @@ KorcakPlot1 <- function(areas, minval=100, addLine="none", lineColour="red", use
                                 colour = lineColour)
 
   }
-
   return(p)
-
 }

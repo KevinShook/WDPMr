@@ -7,7 +7,7 @@
 #'
 #' @examples \dontrun{
 #' p <- zengaPlot(x)}
-#' @references From Cirillo, P. (2013), Are your data really Pareto distributed?, Phys. A Stat. Mech. its Appl., 392(23), 5947–5962, doi:10.1016/j.physa.2013.07.061.
+#' @references From Cirillo, P. (2013), Are your data really Pareto distributed?, Phys. A Stat. Mech. its Appl., 392(23), 5947-5962, doi:10.1016/j.physa.2013.07.061.
 zengaPlot <- function(data){
   # Since the code relies on the Lorenz curve
   #as computed by the "ineq" library,
@@ -15,11 +15,11 @@ zengaPlot <- function(data){
   # Empirical Lorenz
   est <- ineq::Lc(data)
   # Zenga curve
-  Zu <- (est$p-est$L)/(est$p*(1-est$L))
+  Zu <- (est$p - est$L)/(est$p*(1 - est$L))
   # We rescale the first and the last point for
   # graphical reasons
   Zu[1] <- Zu[2]
-  Zu[length(Zu)] <- Zu[(length(Zu)-1)]
+  Zu[length(Zu)] <- Zu[(length(Zu) - 1)]
 
   # Here’s the plot
   all <- data.frame(est$p, Zu)
