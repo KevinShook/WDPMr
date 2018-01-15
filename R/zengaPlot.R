@@ -12,6 +12,9 @@ zengaPlot <- function(data){
   # Since the code relies on the Lorenz curve
   #as computed by the "ineq" library,
   # we upload it library(ineq) #
+  # define ggplot2 vars
+  u <- NULL
+  Z <- NULL
   # Empirical Lorenz
   est <- ineq::Lc(data)
   # Zenga curve

@@ -4,11 +4,11 @@
 #' @param extend Optional. Logical. Should plots be extended to (0,0) and (1,1)? Default is \code{FALSE}.
 #' @param outFile Required. CSV file for output.
 #'
-#' @return Returns ruising limb contributing fraction plot.
+#' @return Returns rising limb contributing fraction plot.
 #' @export
 #'
-#' @examples \dontrun{
-# p <- plotRisingLimbROF(df, "RisingLimb.csv") }
+#' @examples \dontrun{p <- plotRisingLimbROF(df, "RisingLimb.csv")
+#' }
 plotRisingLimbROF <- function(sortedAreaVols='', extend=FALSE, outFile=""){
   tempOutfile <- NULL
   # get contrib area fractions
