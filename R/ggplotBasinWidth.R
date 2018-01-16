@@ -9,8 +9,9 @@
 ggplotBasinWidth <- function(destinations, counts=TRUE) {
   p <- NULL
   distance <- NULL
-  counts <- NULL
+  width <- NULL
   density <- NULL
+
   # get graph
   g <- graphPCMPonds(destinations, removeNodeZero = FALSE)
 
@@ -21,15 +22,17 @@ ggplotBasinWidth <- function(destinations, counts=TRUE) {
   df <- data.frame(width$breaks[-1], width$counts, width$density)
   names(df) <- c('distance', 'width', 'density')
   if (counts) {
-    p <- ggplot(all, aes(distance, counts)) + geom_line() +
-      geom_point(size = 2) +
-      xlab('Network distance') + ylab('Number of ponds')
+    p <- ggplot2::ggplot(df, ggplot2::aes(distance, width)) +
+      ggplot2::geom_line() +
+      ggplot2::geom_point(size = 2) +
+      ggplot2::xlab('Network distance') +
+      ggplot2::ylab('Number of ponds')
   } else {
-    p <- ggplot(all, aes(distance, density)) + geom_line() +
-      geom_point(size = 2) +
-      xlab('Network distance') + ylab('Width density')
+    p <- ggplot2::ggplot(all, ggplot2::aes(distance, density)) +
+      ggplot2::geom_line() +
+      ggplot2::geom_point(size = 2) +
+      ggplot2::xlab('Network distance') +
+      ggplot2::ylab('Width density')
   }
-
-
-  return(p)
+ return(p)
 }

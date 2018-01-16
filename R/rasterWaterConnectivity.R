@@ -9,6 +9,8 @@
 #' @examples \dontrun{conn <- rasterWaterConnectivity(el, FALSE)
 #' }
 rasterWaterConnectivity <- function(elevations, quiet = TRUE) {
+
+  import::from(raster, "%in%")
   patches <- elevations$patch_vals
   patches_raster <- elevations$patches_raster
   numPatches <- nrow(patches)
