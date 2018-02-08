@@ -46,7 +46,7 @@ fracBelowPour <- function(DEMfile, fractionOnly=TRUE){
     allBasindata <- belowfrac
   else{
     allBasindata <- list(belowfrac = belowfrac, pourEl=pourEl, basinPoints = basinPoints,
-                         outletLoc =outletLoc, cellArea= cellArea, belowRegion=belowRegion, divide=divide)
+                         outletLoc = outletLoc, cellArea= cellArea, belowRegion=belowRegion, divide=divide)
   }
 
   return(allBasindata)

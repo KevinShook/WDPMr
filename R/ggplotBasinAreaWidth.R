@@ -1,0 +1,31 @@
+#' Create ggplot2 of basin width function
+#'
+#' @param destinations Required. Vector containing pond drainage destinations as used by \code{PCM}.
+#' @param areas Required. Vector containing pond areas.
+#' @return Returns ggplot2 object of basin width function.
+#' @export
+#'
+#' @examples \dontrun{p <- ggplotBasinWidth(dests, areas)}
+ggplotBasinAreaWidth <- function(destinations, areas) {
+  p <- NULL
+  distance <- NULL
+  width <- NULL
+  density <- NULL
+
+  # get graph
+  g <- graphPCMPonds(destinations, removeNodeZero = FALSE)
+
+  # get width function
+  width <- PCMareaWidth(g, areas)
+
+  # assemble output
+  df <- data.frame(width$breaks[-1], width$counts, width$density)
+  names(df) <- c('distance', 'width', 'density')
+  p <- ggplot2::ggplot(all, ggplot2::aes(distance, density)) +
+      ggplot2::geom_line() +
+      ggplot2::geom_point(size = 2) +
+      ggplot2::xlab('Network distance') +
+      ggplot2::ylab('Pond area density')
+
+ return(p)
+}

@@ -10,7 +10,7 @@
 #' @examples \dontrun{p <- plotRisingLimbROF(df, "RisingLimb.csv")
 #' }
 plotRisingLimbROF <- function(sortedAreaVols='', extend=FALSE, outFile=""){
-  tempOutfile <- NULL
+  tempOutfile <- "./tempFile"
   # get contrib area fractions
   p <- loop1ContribFracPlot(orderedAreaVol = sortedAreaVols, extend = extend, outfile = tempOutfile)
 

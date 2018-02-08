@@ -16,17 +16,23 @@ findOutlet <- function(DEMfile){
   # find lowest point
   lowestEl <- raster::minValue(dem)
   lowestLoc <- raster::which.min(dem)
-  lowestXY <- raster::xyFromCell(dem, lowestLoc, spatial=FALSE)
+  lowestXY <- raster::xyFromCell(dem, lowestLoc, spatial = FALSE)
 
   # find basin boundary
-  divide <- raster::boundaries(dem, type='inner', classes=FALSE, directions=8, asNA=TRUE)
+  divide <- raster::boundaries(dem, type='inner', classes = FALSE,
+                               directions = 8, asNA = TRUE)
+
+  # create mask
+  emptyRaster <- divide
+  emptyRaster[emptyRaster != 1] <- 0
+
+  m <- raster::mask(dem, emptyRaster)
 
   # now get lowest boundary point
-  divideDEM <- dem[divide == 1]
-  pourEl <- min(divideDEM)
-  pourLoc <- which.min(divideDEM)
-  pourXY <- raster::xyFromCell(dem, pourLoc, spatial=FALSE)
+  pourEl <- raster::minValue(m)
+  pourLoc <- raster::which.min(m)
+  pourXY <- raster::xyFromCell(m, pourLoc, spatial = FALSE)
   # assemble output
-  output <- list(lowestEl=lowestEl, lowestXY=lowestXY, pourEl=pourEl, pourXY=pourXY)
+  output <- list(lowestEl = lowestEl, lowestXY = lowestXY, pourEl = pourEl, pourXY = pourXY)
   return(output)
 }
