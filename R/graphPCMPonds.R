@@ -3,7 +3,7 @@
 #' @param dest Required. Vector of drainage destinations.
 #' @param numPonds Optional. Number of ponds to be plotted. If omitted, all ponds will be used.
 #' @param disConnected Optional. Vector of link numbers to be deleted.
-#' @param size Optional. Either scalar of commong pond size or vector of all pond areas.
+#' @param size Optional. Either scalar of common pond size or vector of all pond areas.
 #' @param maxSize Optional. Used to scale vector of pond areas.
 #' @param removeNodeZero Optional. Should pond zero be plotted? Default is \code{FALSE}
 #' @param labels Optional. Should ponds labels be plotted? Default is \code{FALSE}.
