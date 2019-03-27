@@ -24,7 +24,7 @@ zengaPlot <- function(data){
   Zu[1] <- Zu[2]
   Zu[length(Zu)] <- Zu[(length(Zu) - 1)]
 
-  # Here’s the plot
+  # Here is the plot
   all <- data.frame(est$p, Zu)
   names(all) <- c('u', 'Z')
   p <- ggplot2::ggplot(all, ggplot2::aes(u, Z)) +

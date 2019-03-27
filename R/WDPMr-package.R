@@ -17,7 +17,7 @@
 #' The WDPM program is described in:\cr
 #'\cite{Shook, K., Pomeroy, J. W., Spence, C., and Boychuk, L. (2013). \dQuote{Storage dynamics simulations in prairie wetland hydrology models: evaluation and parameterization}. Hydrological Processes, 27(13), 1875-1889. http://doi.org/10.1002/hyp.9867}\cr
 #'The WDPM model may be downloaded from \url{http://www.usask.ca/hydrology/CRHM.php}.\cr
-#' @import ggplot2 stringr reshape2 grid RColorBrewer ismev import geosphere proj4
+#' @import ggplot2 stringr reshape2 grid RColorBrewer ismev import geosphere
 #' @importFrom SDMTools read.asc ConnCompLabel PatchStat
 #' @importFrom raster as.matrix cellStats raster mask
 #' @importFrom utils read.table type.convert

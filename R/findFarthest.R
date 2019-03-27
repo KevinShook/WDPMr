@@ -1,12 +1,12 @@
 #' Finds location of farthest point from outlet
 #'
-#' @param DEMfile
-#'
-#' @return DEMfile Required. ArcGIS \code{.asc} file of a basin DEM. Must have non-basin points indicated as missing.
+#' @param DEMfile Required. ArcGIS \code{.asc} file of a basin DEM. Must have non-basin points indicated as missing.
 #' @export
 #'
+#' @return Returns a list containing the XY coordinates and the distance of the point farthest from the outlet.
+#'
 #' @examples \dontrun{
-#' farthest <- findFarthest('basin5.asc')
+#' farthest <- findFarthest("basin5.asc")
 #' }
 findFarthest <- function(DEMfile) {
   dem  <-  SDMTools::read.asc(DEMfile)
