@@ -6,21 +6,21 @@
 #'
 #' @return If successful, returns a vector containing the following values
 #' \describe{
-#'  \item{num_rows}{number of rows in the file}
-#'  \item{num_cols}{number of cols in the file}
-#'  \item{cell_size}{width of each cell. Typically in m; could be in degrees}
-#'  \item{outside_cells}{number of cells outside the basin}
-#'  \item{inside_cells}{number of cells inside the basin}
-#'  \item{inside_area}{basin area in units of \code{cell_size} squared}
+#'  \item{num_rows}{Number of rows in the file}
+#'  \item{num_cols}{Number of cols in the file}
+#'  \item{cell_size}{Width of each cell. Typically in metres, could be in degrees}
+#'  \item{outside_cells}{Number of cells outside the basin}
+#'  \item{inside_cells}{Number of cells inside the basin}
+#'  \item{inside_area}{Basin area in units of \code{cell_size} squared}
 #' }
-#'
 #' @export
 #'
-#' @examples \dontrun{<- basinStats("StDenis.asc")}
-#'
+#' @examples \dontrun{
+#' stats <- basinStats("StDenis.asc")
+#' }
 basinStats <- function(asc_file) {
-  if(is.null(asc_file)) {
-    cat("Error: ASCfile is missing\n")
+  if(is.null(asc_file) | asc_file == "") {
+    cat("Error: asc_file is missing\n")
     return(FALSE)
   }
   basin  <-  SDMTools::read.asc(asc_file)
