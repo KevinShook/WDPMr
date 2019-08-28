@@ -1,0 +1,13 @@
+citHeader("To cite WDPMr in publications use:")
+
+citEntry(entry = "Manual",
+  title        = "{WDPMr}: post-processing for the Wetland DEM Ponding Model",
+  author       = personList(as.person("Kevin Shook")),
+  year         = "2016",
+  url          = "www.usask.ca/hydrology/RPkgs.php/",
+
+  textVersion  =
+  paste("Kevin Shook (2016).",
+        "WDPMr: post-processing for the Wetland DEM Ponding Model.",
+        "URL www.usask.ca/hydrology/RPkgs.php/.")
+)

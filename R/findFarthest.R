@@ -17,7 +17,7 @@ findFarthest <- function(DEMfile) {
   #output <- list(lowestEl=lowestEl, lowestXY=lowestXY, pourEl=pourEl, pourXY=pourXY)
 
   # find basin divide
-  divide <- raster::boundaries(dem, type = 'inner', classes = FALSE,
+  divide <- raster::boundaries(dem, type = "inner", classes = FALSE,
                                directions = 8, asNA = TRUE)
 
   # get distance of each point on the divide from the outlet

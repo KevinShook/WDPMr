@@ -5,7 +5,7 @@
 #' @param disConnected Optional. Vector of link numbers to be deleted.
 #' @param size Optional. Either scalar of common pond size or vector of all pond areas.
 #' @param maxSize Optional. Used to scale vector of pond areas.
-#' @param removeNodeZero Optional. Should pond zero be plotted? Default is \code{FALSE}
+#' @param removeNodeZero Optional. Should pond zero be plotted? Default is \code{FALSE}.
 #' @param labels Optional. Should ponds labels be plotted? Default is \code{FALSE}.
 #' @param arrowSize Optional. Size of arrow heads. Default is \code{0} (no arrow).
 #' @param simplify Optional. Should plot be simplified? Default is \code{TRUE}.
@@ -19,13 +19,13 @@
 #' g <- graphPCMPonds(pcmModel)
 #' plot(g)}
 
-graphPCMPonds <- function(dest, numPonds=0, disConnected='', size=0, maxSize=20, removeNodeZero=TRUE,
+graphPCMPonds <- function(dest, numPonds=0, disConnected="", size=0, maxSize=20, removeNodeZero=TRUE,
                          labels=FALSE, arrowSize=0, simplify=TRUE, vertexColours='', edgeColours='',
                          outletRed=TRUE, lineWidth=1){
 
   dest <- as.character(dest)
   if (removeNodeZero){
-    dest[dest=='0'] <- '1'
+    dest[dest=="0"] <- "1"
   }
   if (numPonds <= 0)
     numPonds <- length(dest)
@@ -61,7 +61,7 @@ graphPCMPonds <- function(dest, numPonds=0, disConnected='', size=0, maxSize=20,
     # trim size vector
     if (removeNodeZero){
       if (length(size) < (numPonds)){
-        cat('Error: insufficient pond areas\n')
+        cat("Error: insufficient pond areas\n")
         return(FALSE)
       }
       else
@@ -69,7 +69,7 @@ graphPCMPonds <- function(dest, numPonds=0, disConnected='', size=0, maxSize=20,
     }
     else{
       if (length(size) < (numPonds+1)){
-        cat('Error: insufficient pond areas\n')
+        cat("Error: insufficient pond areas\n")
         return(FALSE)
       }
       else
@@ -98,22 +98,22 @@ graphPCMPonds <- function(dest, numPonds=0, disConnected='', size=0, maxSize=20,
   # disconnect links
   if (length(disConnected) > 1)
     g <- igraph::delete_edges(g, disConnected)
-  else if (disConnected !='')
+  else if (disConnected !="")
     g <- igraph::delete_edges(g, disConnected)
 
   # set colours
   if (length(vertexColours) > 1)
     igraph::V(g)$color <- vertexColours
-  else if (vertexColours != '')
+  else if (vertexColours != "")
     igraph::V(g)$color <- vertexColours
 
   if (length(edgeColours) > 1)
     igraph::E(g)$color <- edgeColours
-  else if (edgeColours != '')
+  else if (edgeColours != "")
     igraph::E(g)$color <- edgeColours
 
   if(outletRed)
-    igraph::V(g)$color[1] <- 'red'
+    igraph::V(g)$color[1] <- "red"
 
   return(g)
 }

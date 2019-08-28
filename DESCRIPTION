@@ -1,8 +1,8 @@
 Package: WDPMr
 Type: Package
 Title: Post-processing for the WDPM and PCM models
-Version: 1.1.2
-Date: 2019-03-27
+Version: 1.1.3
+Date: 2019-08-28
 Author: Kevin Shook, Centre for Hydrology, University of Saskatchewan
 Maintainer: Kevin Shook <kevin.shook@usask.ca>
 Description: Processes WDPM output including determining water patch areas, total water area and volume, and plots the output.

@@ -69,7 +69,7 @@ loop1ContribFracPlot <- function(orderedAreaVol, extend=TRUE, normalize=TRUE,  o
   cat('Area volume hysteresis = ', AV.hysteresis,'\n', sep='')
 
   p <- contributingAreaHysteresisPlot(curve1, curve2, extend=extend,
-                                      normalize=normalize, outfile=outfile, N=N)
+                                      normalize=FALSE, outfile=outfile, N=N)
 
   return(p)
 }
