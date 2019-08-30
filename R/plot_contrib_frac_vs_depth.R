@@ -20,13 +20,12 @@ plot_contrib_frac_vs_depth <- function(orderedAreaVol) {
   curve1.depth <- c(0)
   curve2.depth <- c(0)
 
-  basin_area <- orderedAreaVol$basin_area[1]
+  basin_area <- orderedAreaVol$basin.area[1]
 
   # now get changes in volume
   # select additions of 1mm to existing water
   added <- subset(orderedAreaVol, add2 > 0)
   rest <- subset(orderedAreaVol, add2 == 0)
-  max.volume <- max(orderedAreaVol$water.volume)
   added.count <- nrow(added)
 
   j <- 0
