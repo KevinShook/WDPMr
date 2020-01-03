@@ -4,6 +4,7 @@
 #' @export
 #'
 #' @return Returns a list containing the XY coordinates and the distance of the point farthest from the outlet.
+#' @seealso \code{\link{findOutlet}}
 #'
 #' @examples \dontrun{
 #' farthest <- findFarthest("basin5.asc")
@@ -23,9 +24,16 @@ findFarthest <- function(DEMfile) {
   # get distance of each point on the divide from the outlet
   distanceFromOutlet <- raster::distanceFromPoints(divide, outlet$pourXY)
 
+  # clip distance with divide
+  distanceFromOutlet <- distanceFromOutlet * divide
+
   maxDivideDist <- raster::maxValue(distanceFromOutlet)
   maxDistLoc <- raster::which.max(distanceFromOutlet)
-  maxDistXY <- raster::xyFromCell(dem, maxDistLoc, spatial = FALSE)
-  output <- list(maxDistXY = maxDistXY, maxDivideDist = maxDivideDist)
+  maxDistXY <- raster::xyFromCell(divide, maxDistLoc, spatial = FALSE)
+  max_dist_dem_loc <- cellFromXY(dem, maxDistXY)
+  max_dist_el <- raster::extract(dem, max_dist_dem_loc)
+
+  # get elevation of farthest point (useful for slope)
+  output <- list(maxDistXY = maxDistXY, maxDivideDist = maxDivideDist, maxDistEl = max_dist_el)
   return(output)
 }

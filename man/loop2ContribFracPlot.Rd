@@ -4,8 +4,13 @@
 \alias{loop2ContribFracPlot}
 \title{Plots loop2 contributing fraction hysteresis}
 \usage{
-loop2ContribFracPlot(orderedAreaVol, extend = FALSE, normalize = TRUE,
-  outfile = "", N = 1)
+loop2ContribFracPlot(
+  orderedAreaVol,
+  extend = FALSE,
+  normalize = TRUE,
+  outfile = "",
+  N = 1
+)
 }
 \arguments{
 \item{orderedAreaVol}{Required. A set of ordered areas and volumes as produced by \code{volumeAreaSequence}}

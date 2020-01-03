@@ -1,14 +1,15 @@
 Package: WDPMr
 Type: Package
 Title: Post-processing for the WDPM and PCM models
-Version: 1.1.3
-Date: 2019-08-28
+Version: 1.1.4
+Date: 2020-01-03
 Author: Kevin Shook, Centre for Hydrology, University of Saskatchewan
 Maintainer: Kevin Shook <kevin.shook@usask.ca>
 Description: Processes WDPM output including determining water patch areas, total water area and volume, and plots the output.
 Depends: R (>= 3.1)
-Imports: ggplot2(>= 2.0.0), SDMTools, reshape2, stringr(>= 1.0), raster, RColorBrewer, utils, igraph, graphics, ismev, extraDistr, ineq, fExtremes, import, geosphere, RSAGA, rgdal, rgeos
+Imports: ggplot2(>= 2.0.0), SDMTools, reshape2, stringr(>= 1.0), raster, RColorBrewer, utils, igraph, 
+  graphics, ismev, extraDistr, ineq, fExtremes, import, geosphere, RSAGA, rgdal, rgeos, actuar, fitdistrplus
 License: GPL-3
 LazyData: TRUE
 URL: www.usask.ca/hydrology
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2

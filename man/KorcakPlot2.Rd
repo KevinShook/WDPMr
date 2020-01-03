@@ -4,9 +4,17 @@
 \alias{KorcakPlot2}
 \title{Korkcak plot of 2 data sets}
 \usage{
-KorcakPlot2(data1, name1, data2, name2, minsize = 0, xbreaks = c(10,
-  1000, 1e+05), ybreaks = c(0.005, 0.001, 0.01, 0.1, 0.2, 0.4, 0.6, 0.8,
-  1), addLine = "linear", useLargest = FALSE)
+KorcakPlot2(
+  data1,
+  name1,
+  data2,
+  name2,
+  minsize = 0,
+  xbreaks = c(10, 1000, 1e+05),
+  ybreaks = c(0.005, 0.001, 0.01, 0.1, 0.2, 0.4, 0.6, 0.8, 1),
+  addLine = "linear",
+  useLargest = FALSE
+)
 }
 \arguments{
 \item{data1}{Required. Vector holding first data set.}

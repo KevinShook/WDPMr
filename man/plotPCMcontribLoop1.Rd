@@ -4,8 +4,13 @@
 \alias{plotPCMcontribLoop1}
 \title{Plots Loop1 contributing fraction for PCM output}
 \usage{
-plotPCMcontribLoop1(PCMROPfile, extend = TRUE, normalize = TRUE,
-  outfile = "", N = 1)
+plotPCMcontribLoop1(
+  PCMROPfile,
+  extend = TRUE,
+  normalize = TRUE,
+  outfile = "",
+  N = 1
+)
 }
 \arguments{
 \item{PCMROPfile}{Required. File containing PCM output.}

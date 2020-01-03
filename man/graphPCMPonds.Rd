@@ -4,10 +4,21 @@
 \alias{graphPCMPonds}
 \title{Creates graph of PCM ponds}
 \usage{
-graphPCMPonds(dest, numPonds = 0, disConnected = "", size = 0,
-  maxSize = 20, removeNodeZero = TRUE, labels = FALSE,
-  arrowSize = 0, simplify = TRUE, vertexColours = "",
-  edgeColours = "", outletRed = TRUE, lineWidth = 1)
+graphPCMPonds(
+  dest,
+  numPonds = 0,
+  disConnected = "",
+  size = 0,
+  maxSize = 20,
+  removeNodeZero = TRUE,
+  labels = FALSE,
+  arrowSize = 0,
+  simplify = TRUE,
+  vertexColours = "",
+  edgeColours = "",
+  outletRed = TRUE,
+  lineWidth = 1
+)
 }
 \arguments{
 \item{dest}{Required. Vector of drainage destinations.}

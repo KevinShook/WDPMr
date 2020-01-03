@@ -2,7 +2,8 @@
 #'
 #' @param areas Required. Vector of water areas.
 #' @param minval Optional. Minimum water area to be plotted. Default is 100 m2.
-#' @param addLine Optional. Default is \option{none}. Other options are \option{linear}, \option{quadratic}, and \option{gpd}.
+#' @param addLine Optional. Default is \option{none}. Other options are \option{linear}, \option{quadratic}, \option{gpd} and
+#' \option{pareto2}.
 #' @param lineColour Optional. Colour to be used for the fitted line. Default is \option{red}.
 #' @param useLargest Optional. If \code{TRUE} then the largest value will be used, i.e. its non-exceedence probability willl be > 0. Default is \code{FALSE}.
 #' @return Returns \pkg{ggplot2} object of Korcak plot.
@@ -58,5 +59,26 @@ KorcakPlot1 <- function(areas, minval=100, addLine="none", lineColour="red", use
                                 colour = lineColour)
 
   }
+
+  if (addLine == "pareto2") {
+    # fit gpd to distribution
+    # fit GPD
+    paretofit <- fitdistrplus::fitdist(SDB_ponds$area, "pareto2", method = "mge",
+                      start = list(shape = 1, scale = 300), gof = "ADR")
+    shape <- paretofit$estimate[1]
+    scale <- paretofit$estimate[2]
+
+
+    # create plotting points
+    # generate random values
+    r <- actuar::rpareto(50000, shape = shape, scale = scale)
+    # get exceedence probability
+    exProb <- 1 - actuar::ppareto(r, shape = shape, scale = scale)
+    pareto2 <- data.frame(r, exProb)
+    p <- p + ggplot2::geom_line(data = pareto2, ggplot2::aes(r, exProb),
+                                colour = lineColour)
+
+  }
+
   return(p)
 }

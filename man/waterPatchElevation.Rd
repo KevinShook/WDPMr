@@ -4,8 +4,13 @@
 \alias{waterPatchElevation}
 \title{Calculates mean elevations of patches of water}
 \usage{
-waterPatchElevation(waterFile, threshold = 0.001, DEMfile,
-  quiet = TRUE, return = "raster")
+waterPatchElevation(
+  waterFile,
+  threshold = 0.001,
+  DEMfile,
+  quiet = TRUE,
+  return = "raster"
+)
 }
 \arguments{
 \item{waterFile}{Required. ArcGIS .asc file of water from WDPM.}

@@ -4,15 +4,21 @@
 \alias{KorcakPlot1}
 \title{Korcak plot of 1 data set of water areas}
 \usage{
-KorcakPlot1(areas, minval = 100, addLine = "none",
-  lineColour = "red", useLargest = FALSE)
+KorcakPlot1(
+  areas,
+  minval = 100,
+  addLine = "none",
+  lineColour = "red",
+  useLargest = FALSE
+)
 }
 \arguments{
 \item{areas}{Required. Vector of water areas.}
 
 \item{minval}{Optional. Minimum water area to be plotted. Default is 100 m2.}
 
-\item{addLine}{Optional. Default is \option{none}. Other options are \option{linear}, \option{quadratic}, and \option{gpd}.}
+\item{addLine}{Optional. Default is \option{none}. Other options are \option{linear}, \option{quadratic}, \option{gpd} and
+\option{pareto2}.}
 
 \item{lineColour}{Optional. Colour to be used for the fitted line. Default is \option{red}.}
 

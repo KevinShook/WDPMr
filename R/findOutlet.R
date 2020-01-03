@@ -2,7 +2,10 @@
 #'
 #' @param DEMfile Required. ArcGIS \code{.asc} file of a basin DEM. Must have non-basin points indicated as missing.
 #'
-#' @return Returns a list containing the mininum elevation within the basin, its location, the pour point elevation and its location.
+#' @return Returns a list containing the mininum elevation within
+#'
+#' @seealso \code{\link{findFarthest}} \code{\link{findClosestPointToOutlet}}
+#' the basin, its location, the pour point elevation and its location.
 #' @export
 #'
 #' @examples \dontrun{

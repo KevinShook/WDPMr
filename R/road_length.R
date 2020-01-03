@@ -26,4 +26,5 @@ road_length <- function(road_shapefile, basin_shapefile) {
 
   result <- c(total_road_length, basin_area, road_density)
   names(result) <- c("total_road_length", "basin_area", "road_density")
+  return(result)
 }

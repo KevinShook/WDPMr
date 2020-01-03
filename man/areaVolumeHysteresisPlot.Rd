@@ -4,8 +4,14 @@
 \alias{areaVolumeHysteresisPlot}
 \title{Plots area-volume hysteresis curves of total water area against volume}
 \usage{
-areaVolumeHysteresisPlot(curve1, curve2, extend = TRUE,
-  normalize = TRUE, outfile = "", N = 1)
+areaVolumeHysteresisPlot(
+  curve1,
+  curve2,
+  extend = TRUE,
+  normalize = TRUE,
+  outfile = "",
+  N = 1
+)
 }
 \arguments{
 \item{curve1}{Required. Data frame containing the filling curve.}

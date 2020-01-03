@@ -4,8 +4,14 @@
 \alias{contributingAreaHysteresisPlot}
 \title{Plots hysteresis curves of connected/contributing area against volume}
 \usage{
-contributingAreaHysteresisPlot(curve1, curve2, extend = TRUE,
-  normalize = TRUE, outfile = "", N = 1)
+contributingAreaHysteresisPlot(
+  curve1,
+  curve2,
+  extend = TRUE,
+  normalize = TRUE,
+  outfile = "",
+  N = 1
+)
 }
 \arguments{
 \item{curve1}{Required. Data frame containing the filling curve.}
