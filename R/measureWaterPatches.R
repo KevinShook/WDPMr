@@ -15,13 +15,14 @@ measureWaterPatches <- function(infile, threshold=0.001){
 
   # make binary
   asc.binary <- asc
-  asc.binary[asc.binary>0] <- 1
+  asc.binary[asc.binary <= threshold] <- NA_real_
+  asc.binary[asc.binary > threshold] <- 1
 
   # get patch connectivity
   ccl <- SDMTools::ConnCompLabel(asc.binary)
 
   # get patch stats - omit unfilled region
-  patches <- SDMTools::PatchStat(ccl, cellsize=cellsize)
+  patches <- SDMTools::PatchStat(ccl, cellsize = cellsize)
   patches <- patches[patches$patchID > 0,]
 
   # return patch statistics

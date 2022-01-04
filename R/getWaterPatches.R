@@ -9,15 +9,16 @@
 #'
 #' @examples \dontrun{
 #' patches <- getWaterPatches('10_0_0_0_d.asc')}
-getWaterPatches <- function(infile, threshold=0.001){
+getWaterPatches <- function(infile, threshold = 0.001){
   asc  <-  SDMTools::read.asc(infile)
-  cellsize <- attr(asc, "cellsize")
-  a  <-  strsplit(infile,".asc")
-  waterfile  <-  a[[1]][1]
+  #cellsize <- attr(asc, "cellsize")
+  # a  <-  strsplit(infile,".asc")
+  #waterfile  <-  a[[1]][1]
 
   # make binary
   asc.binary <- asc
-  asc.binary[asc.binary>0]<-1
+  asc.binary[asc.binary <= threshold] <- NA_real_
+  asc.binary[asc.binary > threshold] <- 1
 
   # get patch connectivity
   ccl <- SDMTools::ConnCompLabel(asc.binary)

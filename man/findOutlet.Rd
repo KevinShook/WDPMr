@@ -10,7 +10,7 @@ findOutlet(DEMfile)
 \item{DEMfile}{Required. ArcGIS \code{.asc} file of a basin DEM. Must have non-basin points indicated as missing.}
 }
 \value{
-Returns a list containing the mininum elevation within the basin, its location, the pour point elevation and its location.
+Returns a list containing the mininum elevation within
 }
 \description{
 Finds lowest elevation in a DEM file, and the basin pour point
@@ -19,4 +19,8 @@ Finds lowest elevation in a DEM file, and the basin pour point
 \dontrun{
 outlet <- findOutlet('basin5.asc')
 }
+}
+\seealso{
+\code{\link{findFarthest}} \code{\link{findClosestPointToOutlet}}
+the basin, its location, the pour point elevation and its location.
 }

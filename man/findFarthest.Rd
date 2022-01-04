@@ -20,3 +20,6 @@ Finds location of farthest point from outlet
 farthest <- findFarthest("basin5.asc")
 }
 }
+\seealso{
+\code{\link{findOutlet}}
+}
