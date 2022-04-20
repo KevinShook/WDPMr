@@ -12,4 +12,4 @@ Imports: ggplot2(>= 2.0.0), SDMTools, reshape2, stringr(>= 1.0), raster, RColorB
 License: GPL-3
 LazyData: TRUE
 URL: www.usask.ca/hydrology
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.2
